@@ -1,0 +1,19 @@
+<html style="height:100%; position:relative">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+</head>
+<body style="background:black; min-height:100%;">
+<div id="openseadragon1" style="position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;"></div>
+<script src="/openseadragon/openseadragon.min.js"></script>
+<script type="text/javascript">
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "/openseadragon/images/"
+    });
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.Taurus.135mm.Panel5.xml',
+        index:0
+    });
+</script>
+</body>
+</html>

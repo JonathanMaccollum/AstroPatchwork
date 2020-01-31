@@ -1,0 +1,131 @@
+<html style="height:100%; position:relative">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+</head>
+<body style="background:black; min-height:100%;">
+<div id="openseadragon1" style="position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;"></div>
+<script src="/openseadragon/openseadragon.min.js"></script>
+<script type="text/javascript">
+    function showOkesHorsehead(viewer) {
+        viewer.addTiledImage({
+            tileSource: '/OkeWoke.Horsehead.xml',
+            x: 0.1615,y: 0.51,opacity:1,degrees:107.5,
+            width: 0.026,
+            index:2, replace:true       
+        });
+        viewer.addTiledImage({
+            tileSource: '/hotspicybonr.Horsehead.xml',
+            x: 0.1609,y: 0.5032,opacity:0.0,degrees:4,
+            width: 0.027,
+            index:3, replace:true       
+        });
+    };
+    function showHotSpicyBonrsHorsehead(viewer) {
+        viewer.addTiledImage({
+            tileSource: '/OkeWoke.Horsehead.xml',
+            x: 0.1615,y: 0.51,opacity:0.0,degrees:107.5,
+            width: 0.026,
+            index:2, replace:true       
+        });
+        viewer.addTiledImage({
+            tileSource: '/hotspicybonr.Horsehead.xml',
+            x: 0.1609,y: 0.5032,opacity:1,degrees:4,
+            width: 0.027,
+            index:3, replace:true       
+        });
+    };
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "/openseadragon/images/"
+    });
+    viewer.addTiledImage({
+        tileSource: '/Lefty.Patchwork.17mm.Mosaic.xml',
+        index:0
+    });
+    
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.Taurus.135mm.Panel5.xml',
+        x:0.382,y:0.146,opacity:1, degrees:11.0,
+        width:0.1020,
+        index:1, replace:false
+    });
+
+    viewer.addTiledImage({
+        tileSource: '/OkeWoke.Horsehead.xml',
+        x: 0.1615,y: 0.51,opacity:1,degrees:107.5,
+        width: 0.026,
+        index:2, replace:false       
+    });
+    viewer.addTiledImage({
+        tileSource: '/hotspicybonr.Horsehead.xml',
+        x: 0.1609,y: 0.5032,opacity:0.95,degrees:4,
+        width: 0.027,
+        index:3, replace:false       
+    });
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.Patchwork.50mm.P0.xml',
+        x: 0.7185,y: 0.122,opacity:0.95,degrees:-43,
+        width: 0.25,
+        index:4, replace:false
+    });
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.Patchwork.50mm.P9.xml',
+        x: 0.5285,y: 0.0550,opacity:1,degrees:-38,
+        width: 0.25,
+        index:5, replace:false
+    });
+    viewer.addTiledImage({
+        tileSource: '/OrangeLantern.California.xml',
+        x: 0.449,y: 0.161,opacity:0.95,degrees:3,
+        width: 0.082,
+        index:6, replace:false
+    });
+    viewer.addTiledImage({
+        tileSource: '/hinterlufer.M45.xml',
+        x: 0.4917,y: 0.3074,opacity:0.95,degrees:181,
+        width: 0.0275,
+        index:7, replace:false
+    });
+
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.ARP273.xml',
+        x: 0.68775,y: 0.1643,opacity:1,degrees:132,
+        width: 0.0083,
+        index:8, replace:false 
+    });
+    viewer.addTiledImage({
+        tileSource: '/usernaneisalreadytak.M31.xml',
+        x: 0.8523,y: 0.1166,opacity:1,degrees:205.6,
+        width: 0.067,
+        index:9, replace:false       
+    });
+    viewer.addTiledImage({
+        tileSource: '/hotspicybonr.M31.xml',
+        x: 0.8735,y: 0.1321,opacity:1,degrees:-25.5,
+        width: 0.0251,
+        index:10, replace:false       
+    });
+    
+    
+
+        /*
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.ARP273.xml',
+        x: 0.6615,y: 0.171,opacity:0.9,degrees:107.5,
+        width: 0.016,
+        index:4, replace:false 
+    });
+    viewer.addTiledImage({
+        tileSource: '/lefty.m34.xml',
+        x: 0.6615,y: 0.171,opacity:0.9,degrees:107.5,
+        width: 0.016,
+        index:5, replace:false 
+    });
+    viewer.addTiledImage({
+        tileSource: '/Patchwork.xml',
+        //opacity:0.4 x:0.235,y:-0.1 //,replace:true,index:1,opacity:0.8
+    });
+    */
+</script>
+</body>
+</html>
