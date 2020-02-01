@@ -50,7 +50,7 @@ foreach($i in $sources)
     try
     {
         $sparse = [Microsoft.DeepZoomTools.SparseImageCreator]::new()
-        $sparse.MaxLevel=15
+        $sparse.MaxLevel=11
         $sparse.ConversionTileFormat = [Microsoft.DeepZoomTools.ImageFormat]::Png
         $sparse.TileFormat = [Microsoft.DeepZoomTools.ImageFormat]::Png
         $sparse.Create($imageList,"$PSScriptRoot\$($i.Author).$($i.Target).xml")
