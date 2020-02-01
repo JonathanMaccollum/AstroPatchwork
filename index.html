@@ -1,6 +1,13 @@
 <html style="height:100%; position:relative">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Project Patchwork - Proof of Concept" />
+    <meta name="twitter:description" content="A Deep Zoom proof of concept of the /r/astrophotography patchwork project" />
+    <meta property="og:title" content="Project Patchwork - Proof of Concept" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/index.Screenshot.PNG" />
 </head>
 <body style="background:black; min-height:100%;">
 <div id="openseadragon1" style="position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;"></div>
@@ -63,75 +70,72 @@
         index:3, replace:false       
     });
     viewer.addTiledImage({
+        tileSource: '/eigenVector.Patchwork.50mm.P1.xml',
+        x: 0.6957,y: 0.164,opacity:1,degrees:319,
+        width: 0.255,
+        index:4, replace:false
+    });
+    viewer.addTiledImage({
         tileSource: '/eigenVector.Patchwork.50mm.P0.xml',
         x: 0.7185,y: 0.122,opacity:1,degrees:-43,
         width: 0.25,
-        index:4, replace:false
+        index:5, replace:false
+    });
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.Patchwork.50mm.P1.xml',
+        x: 0.5087,y: 0.254,opacity:0.5,degrees:147,
+        width: 0.26,
+        index:6, replace:false
+    });
+    viewer.addTiledImage({
+        tileSource: '/eigenVector.Patchwork.50mm.P2.xml',
+        x: 0.6487,y: 0.054,opacity:0.75,degrees:-45,
+        width: 0.26,
+        index:7, replace:false
     });
     viewer.addTiledImage({
         tileSource: '/eigenVector.Patchwork.50mm.P3.xml',
         x: 0.5087,y: 0.254,opacity:1,degrees:147,
         width: 0.26,
-        index:5, replace:false
+        index:8, replace:false
     });
     viewer.addTiledImage({
         tileSource: '/eigenVector.Patchwork.50mm.P9.xml',
         x: 0.5285,y: 0.0550,opacity:1,degrees:-38,
         width: 0.25,
-        index:6, replace:false
+        index:9, replace:false
     });
     viewer.addTiledImage({
         tileSource: '/OrangeLantern.California.xml',
-        x: 0.449,y: 0.161,opacity:0.95,degrees:3,
+        x: 0.449,y: 0.161,opacity:1,degrees:3,
         width: 0.082,
-        index:7, replace:false
+        index:10, replace:false
     });
     viewer.addTiledImage({
         tileSource: '/hinterlufer.M45.xml',
-        x: 0.4917,y: 0.3074,opacity:0.95,degrees:181,
+        x: 0.4917,y: 0.3074,opacity:1,degrees:181,
         width: 0.0275,
-        index:8, replace:false
+        index:11, replace:false
     });
 
     viewer.addTiledImage({
         tileSource: '/eigenVector.ARP273.xml',
         x: 0.68775,y: 0.1643,opacity:1,degrees:132,
         width: 0.0083,
-        index:9, replace:false 
+        index:12, replace:false 
     });
     viewer.addTiledImage({
         tileSource: '/usernaneisalreadytak.M31.xml',
         x: 0.8523,y: 0.1166,opacity:1,degrees:205.6,
         width: 0.067,
-        index:10, replace:false       
+        index:13, replace:false       
     });
     viewer.addTiledImage({
         tileSource: '/hotspicybonr.M31.xml',
         x: 0.8735,y: 0.1321,opacity:1,degrees:-25.5,
         width: 0.0251,
-        index:11, replace:false       
+        index:14, replace:false       
     });
-    
-    
-
-        /*
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.ARP273.xml',
-        x: 0.6615,y: 0.171,opacity:0.9,degrees:107.5,
-        width: 0.016,
-        index:4, replace:false 
-    });
-    viewer.addTiledImage({
-        tileSource: '/lefty.m34.xml',
-        x: 0.6615,y: 0.171,opacity:0.9,degrees:107.5,
-        width: 0.016,
-        index:5, replace:false 
-    });
-    viewer.addTiledImage({
-        tileSource: '/Patchwork.xml',
-        //opacity:0.4 x:0.235,y:-0.1 //,replace:true,index:1,opacity:0.8
-    });
-    */
 </script>
 </body>
 </html>
