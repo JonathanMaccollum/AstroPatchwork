@@ -1,0 +1,16 @@
+Deep Zoom Composer
+=====================================================
+The following is a list of files available with Deep Zoom Composer for redistribution under the Deep Zoom Composer license.  If the Microsoft software you have licensed is not Deep Zoom Composer, only the files that are installed by the Microsoft software may be redistributed under such license.
+
+Subject to the license terms for the software, you may redistribute the file listed below unmodified as a part of your programs.
+
+_____________________________________________________________
+
+
+Deep Zoom Tools
+---------------------------------------------
+DeepZoomTools.dll
+
+
+
+
