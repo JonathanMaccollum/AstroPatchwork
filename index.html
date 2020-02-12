@@ -13,6 +13,7 @@
 <div id="openseadragon1" style="position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;"></div>
 <script src="openseadragon/openseadragon.min.js"></script>
 <script type="text/javascript">
+/*
     function showOkesHorsehead(viewer) {
         viewer.addTiledImage({
             tileSource: '/OkeWoke.Horsehead.xml',
@@ -41,27 +42,59 @@
             index:3, replace:true       
         });
     };
+    */
+    function source(author, name, x=0, y=0, width=1,rotation=0 ){
+        return { author, name, x, y, width, rotation }
+    }
+    var sources = [
+        source('PixInsight','BGStars'),
+        //source('Lefty','MergeMosaic'),
+        source('eigenVector','P0', 0.685, 0.0773, 0.278),
+        source('eigenVector','P012349', 0.4732, 0.0010, 0.5),
+
+        source('eigenVector','P012349', 0.4732, 0.0010, 0.5),
+
+
+        source('OkeWoke','horsehead', 0.1742, 0.5272, 0.0255, 100),
+        //source('PixInsight','Annotated'),
+    ];
+
+    //source('Lefty','Spaghetti', 0.163, 0.164, 0.21, 110),
     var viewer = OpenSeadragon({
         id: "openseadragon1",
         prefixUrl: "/openseadragon/images/"
     });
-    viewer.addTiledImage({
-        tileSource: '/Lefty.Patchwork.17mm.Mosaic.xml',
-        index:0
-    });
-    
+    function refreshAt(index,replace=false){
+        var src=sources[index];
+        viewer.addTiledImage({
+                tileSource:src.author+'.'+src.name+'.xml',
+                index:index,
+                replace:replace,
+                x:src.x,
+                y:src.y,
+                width:src.width,
+                degrees:src.rotation
+            })
+    }
+    function refresh(replace=false){
+        sources.forEach(function(src,i){
+            refreshAt(i, replace)
+        });
+    }
+    function update(i, x, y, w, r) {
+        sources[i].x=x;
+        sources[i].y=y;
+        sources[i].width=w;
+        sources[i].rotation=r;
+        refreshAt(i, true)
+    }
+    refresh(false);
+    /*
     viewer.addTiledImage({
         tileSource: '/eigenVector.Taurus.135mm.Panel5.xml',
         x:0.382,y:0.146,opacity:1, degrees:11.0,
         width:0.1020,
         index:1, replace:false
-    });
-
-    viewer.addTiledImage({
-        tileSource: '/OkeWoke.Horsehead.xml',
-        x: 0.1615,y: 0.51,opacity:1,degrees:107.5,
-        width: 0.026,
-        index:2, replace:false       
     });
     viewer.addTiledImage({
         tileSource: '/hotspicybonr.Horsehead.xml',
@@ -70,9 +103,9 @@
         index:3, replace:false       
     });
     viewer.addTiledImage({
-        tileSource: '/eigenVector.Patchwork.50mm.P1.xml',
-        x: 0.6957,y: 0.164,opacity:1,degrees:319,
-        width: 0.255,
+        tileSource: '/eigenVector.Patchwork.50mm.P0123.xml',
+        x:0.64,y:0.015, opacity:0.95, degrees:-35,
+        width:0.33,
         index:4, replace:false
     });
     viewer.addTiledImage({
@@ -136,6 +169,7 @@
         width: 0.0251,
         index:14, replace:false       
     });
+    */
 </script>
 </body>
 </html>
