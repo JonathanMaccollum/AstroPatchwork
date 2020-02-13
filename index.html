@@ -8,9 +8,39 @@
     <meta property="og:title" content="Project Patchwork - Proof of Concept" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/index.Screenshot.PNG" />
+    <style>
+        body {background:black; min-height:100%;}
+        #openseadragon1{position:absolute; top:10;bottom:10;left:10;right:410;overflow:hidden;}
+        #editor{position:absolute; top:10;bottom:10;right:10;width:400px;overflow:hidden; background-color:#333333;}
+        label{width:100px; display:inline-block; text-align: right;}
+    </style>
 </head>
-<body style="background:black; min-height:100%;">
-<div id="openseadragon1" style="position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;"></div>
+<body >
+<div id="openseadragon1" ></div>
+<div id="editor">
+    <form id="form" >
+        <label for="tiles">Target: </label>
+        <select id="tiles"></select>
+        <br />
+        <label for="x" >X: </label>
+        <input id="x" type="text" width="140px" />
+        <br />
+        <label for="y" >Y: </label>
+        <input id="y" type="text" width="140px"/>
+        <br />
+        <label for="scale" >Scale: </label>
+        <input id="scale" type="text" width="140px"/>
+        <br />
+        <label for="rotation" >Rotation: </label>
+        <input id="rotation" type="text" width="140px"/>
+        <br />
+        <label for="opacity" >Opacity: </label>
+        <input id="opacity" type="text" width="140px"/>
+        <br />
+        <label for="update" >Update: </label>
+        <input id="update" type="button" value="Update" />
+    </form>
+</div>
 <script src="openseadragon/openseadragon.min.js"></script>
 <script type="text/javascript">
 /*
@@ -43,23 +73,38 @@
         });
     };
     */
-    function source(author, name, x=0, y=0, width=1,rotation=0 ){
-        return { author, name, x, y, width, rotation }
+    function source(author, name, x=0, y=0, width=1,rotation=0,opacity=1 ){
+        return { author, name, x, y, width, rotation, opacity }
     }
     var sources = [
         source('PixInsight','BGStars'),
-        //source('Lefty','MergeMosaic'),
-        source('eigenVector','P0', 0.685, 0.0773, 0.278),
+        source('Lefty','MergeMosaic'),
         source('eigenVector','P012349', 0.4732, 0.0010, 0.5),
 
-        source('eigenVector','P012349', 0.4732, 0.0010, 0.5),
+        source('Lefty','Spaghetti', 0.156, 0.122, 0.225, 0),
 
+        source('OrangeLantern','California', 0.441, 0.187, 0.0834,2.5),
+        source('eigenVector','Taurus.135mm.Panel5', 0.375, 0.1737, 0.1005, 12),
+        source('eigenVector','LDN1472LDN1448', 0.476, 0.2365, 0.1003, 5.3),
 
-        source('OkeWoke','horsehead', 0.1742, 0.5272, 0.0255, 100),
-        //source('PixInsight','Annotated'),
+        source('OkeWoke','Horsehead', 0.1742, 0.5272, 0.0255, 100),
+        source('hotspicybonr','Horsehead',0.17315,0.5205,0.02682,-4),
+        source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
+
+        source('lefty','M1', 0.25625, 0.30392, 0.008, 11),
+        source('lefty','M34', 0.6, 0.3, 0.3),
+        source('lefty','M35', 0.6, 0.3, 0.3),
+        source('lefty','M36', 0.6, 0.3, 0.3),
+        source('lefty','M37', 0.6, 0.3, 0.3),
+        source('lefty','M38', 0.6, 0.3, 0.3),
+        
+        source('usernaneisalreadytak','M31',0.821,0.133,0.069,195),
+        source('hotspicybonr','M31', 0.8437,0.150,0.024,-38),
+
+        source('eigenVector','ARP273', 0.677, 0.1963, 0.008,135),
+        source('PixInsight','Annotated'),
     ];
-
-    //source('Lefty','Spaghetti', 0.163, 0.164, 0.21, 110),
+    
     var viewer = OpenSeadragon({
         id: "openseadragon1",
         prefixUrl: "/openseadragon/images/"
@@ -73,7 +118,8 @@
                 x:src.x,
                 y:src.y,
                 width:src.width,
-                degrees:src.rotation
+                degrees:src.rotation,
+                opacity: src.opacity
             })
     }
     function refresh(replace=false){
@@ -81,95 +127,54 @@
             refreshAt(i, replace)
         });
     }
-    function update(i, x, y, w, r) {
+    function update(i, x, y, w, r, o) {
         sources[i].x=x;
         sources[i].y=y;
         sources[i].width=w;
         sources[i].rotation=r;
+        sources[i].opacity=o;
         refreshAt(i, true)
     }
     refresh(false);
-    /*
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.Taurus.135mm.Panel5.xml',
-        x:0.382,y:0.146,opacity:1, degrees:11.0,
-        width:0.1020,
-        index:1, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/hotspicybonr.Horsehead.xml',
-        x: 0.1609,y: 0.5032,opacity:0.95,degrees:4,
-        width: 0.027,
-        index:3, replace:false       
-    });
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.Patchwork.50mm.P0123.xml',
-        x:0.64,y:0.015, opacity:0.95, degrees:-35,
-        width:0.33,
-        index:4, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.Patchwork.50mm.P0.xml',
-        x: 0.7185,y: 0.122,opacity:1,degrees:-43,
-        width: 0.25,
-        index:5, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.Patchwork.50mm.P1.xml',
-        x: 0.5087,y: 0.254,opacity:0.5,degrees:147,
-        width: 0.26,
-        index:6, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.Patchwork.50mm.P2.xml',
-        x: 0.6487,y: 0.054,opacity:0.75,degrees:-45,
-        width: 0.26,
-        index:7, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.Patchwork.50mm.P3.xml',
-        x: 0.5087,y: 0.254,opacity:1,degrees:147,
-        width: 0.26,
-        index:8, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.Patchwork.50mm.P9.xml',
-        x: 0.5285,y: 0.0550,opacity:1,degrees:-38,
-        width: 0.25,
-        index:9, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/OrangeLantern.California.xml',
-        x: 0.449,y: 0.161,opacity:1,degrees:3,
-        width: 0.082,
-        index:10, replace:false
-    });
-    viewer.addTiledImage({
-        tileSource: '/hinterlufer.M45.xml',
-        x: 0.4917,y: 0.3074,opacity:1,degrees:181,
-        width: 0.0275,
-        index:11, replace:false
-    });
 
-    viewer.addTiledImage({
-        tileSource: '/eigenVector.ARP273.xml',
-        x: 0.68775,y: 0.1643,opacity:1,degrees:132,
-        width: 0.0083,
-        index:12, replace:false 
+    var uiElements = {
+        form:document.getElementById('form'),
+        tileSelector:document.getElementById('tiles'),
+        x:document.getElementById('x'),
+        y:document.getElementById('y'),
+        scale:document.getElementById('scale'),
+        rotation:document.getElementById('rotation'),
+        opacity:document.getElementById('opacity'),
+        update:document.getElementById('update'),
+    }
+    sources.forEach(function(src,i){
+        var option = document.createElement("option");
+        option.text=src.name + ' - '+src.author;
+        option.value=i;
+        uiElements.tileSelector.add(option,i);
     });
-    viewer.addTiledImage({
-        tileSource: '/usernaneisalreadytak.M31.xml',
-        x: 0.8523,y: 0.1166,opacity:1,degrees:205.6,
-        width: 0.067,
-        index:13, replace:false       
-    });
-    viewer.addTiledImage({
-        tileSource: '/hotspicybonr.M31.xml',
-        x: 0.8735,y: 0.1321,opacity:1,degrees:-25.5,
-        width: 0.0251,
-        index:14, replace:false       
-    });
-    */
+    uiElements.tileSelector.onchange = function(){
+        var index=this.value;
+        var selectedItem=sources[index];
+        uiElements.x.value=selectedItem.x;
+        uiElements.y.value=selectedItem.y;
+        uiElements.scale.value=selectedItem.width;
+        uiElements.rotation.value=selectedItem.rotation;
+        uiElements.opacity.value=selectedItem.opacity;
+    };
+
+    uiElements.update.onclick=function(){
+        update(
+            uiElements.tileSelector.value,
+            Number(uiElements.x.value),
+            Number(uiElements.y.value),
+            Number(uiElements.scale.value),
+            Number(uiElements.rotation.value),
+            Number(uiElements.opacity.value)
+            );
+    }
+
+
 </script>
 </body>
 </html>

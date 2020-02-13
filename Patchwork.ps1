@@ -16,10 +16,12 @@ import-module "$PSScriptRoot\Bin\DeepZoomTools.DLL"
 $sources = @(
     #New-PatchworkSource -Target "BGStars" -Author PixInsight -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\17mm\CatalogStars.png"
     #New-PatchworkSource -Target "Annotated" -Author PixInsight -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\17mm\CatalogStars_Annotated.png"
-    #New-PatchworkSource -Target "MergeMosaic" -Author Lefty -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\17mm\MergeMosaic.png"
-    New-PatchworkSource -Target "P012349" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\MergeMosaic.P01239.png"
+    #New-PatchworkSource -Target "P012349" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\MergeMosaic.P01239.png"
+    #New-PatchworkSource -Target "LDN1472LDN1448" -Author eigenVector -Source "https://i.redd.it/vipgw5dfj3g41.jpg"
+
+
     #New-PatchworkSource -Target "P0" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\P0.png"
-    #New-PatchworkSource -Target "Spaghetti" -Author Lefty -Source "https://live.staticflickr.com/65535/49520554818_2dd5c837a9_o.png"
+    New-PatchworkSource -Target "Spaghetti" -Author Lefty -Source "s:\dzi\Spaghetti_Patchwork.png"
 
     #New-PatchworkSource -Target "Patchwork.17mm.Mosaic" -Author Lefty -Source "https://live.staticflickr.com/65535/49474607717_3e36185a97_o.jpg"
     #New-PatchworkSource -Target "Horsehead" -Author "hotspicybonr" -Source "https://i.redd.it/yoi99i9z76341.jpg"
