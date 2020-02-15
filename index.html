@@ -7,72 +7,46 @@
     <meta name="twitter:description" content="A Deep Zoom proof of concept of the /r/astrophotography patchwork project" />
     <meta property="og:title" content="Project Patchwork - Proof of Concept" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/index.Screenshot.PNG" />
+    <meta property="og:image" content="/index.Screenshot.20200213.PNG" />
     <style>
         body {background:black; min-height:100%;}
-        #openseadragon1{position:absolute; top:10;bottom:10;left:10;right:410;overflow:hidden;}
-        #editor{position:absolute; top:10;bottom:10;right:10;width:400px;overflow:hidden; background-color:#333333;}
+        #openseadragon1{position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;}
+        #editor{position:absolute; bottom:10;right:10;overflow:hidden; background-color:#333333DD; padding:4px;}
         label{width:100px; display:inline-block; text-align: right;}
     </style>
 </head>
 <body >
 <div id="openseadragon1" ></div>
 <div id="editor">
-    <form id="form" >
-        <label for="tiles">Target: </label>
-        <select id="tiles"></select>
-        <br />
-        <label for="x" >X: </label>
-        <input id="x" type="text" width="140px" />
-        <br />
-        <label for="y" >Y: </label>
-        <input id="y" type="text" width="140px"/>
-        <br />
-        <label for="scale" >Scale: </label>
-        <input id="scale" type="text" width="140px"/>
-        <br />
-        <label for="rotation" >Rotation: </label>
-        <input id="rotation" type="text" width="140px"/>
-        <br />
-        <label for="opacity" >Opacity: </label>
-        <input id="opacity" type="text" width="140px"/>
-        <br />
-        <label for="update" >Update: </label>
-        <input id="update" type="button" value="Update" />
-    </form>
+    <label for="tiles">Target: </label>
+    <select id="tiles"></select>
+    <br />
+    <label for="x" >X: </label>
+    <input id="x" type="text" width="140px" />
+    <br />
+    <label for="y" >Y: </label>
+    <input id="y" type="text" width="140px"/>
+    <br />
+    <label for="scale" >Scale: </label>
+    <input id="scale" type="text" width="140px"/>
+    <br />
+    <label for="rotation" >Rotation: </label>
+    <input id="rotation" type="text" width="140px"/>
+    <br />
+    <label for="opacity" >Opacity: </label>
+    <input id="opacity" type="text" width="140px"/>
+    <br />
+    <label for="update" >Update: </label>
+    <input id="update" type="button" value="Update" />
+    <input id="hide" type="button" value="Hide" />
+    <input id="dim" type="button" value="Dim" />
+    <input id="show" type="button" value="Show" />
+    <br />
+    <label for="capturedValues" >Values: </label>
+    <input id="capturedValues" type="text" disabled />
 </div>
 <script src="openseadragon/openseadragon.min.js"></script>
 <script type="text/javascript">
-/*
-    function showOkesHorsehead(viewer) {
-        viewer.addTiledImage({
-            tileSource: '/OkeWoke.Horsehead.xml',
-            x: 0.1615,y: 0.51,opacity:1,degrees:107.5,
-            width: 0.026,
-            index:2, replace:true       
-        });
-        viewer.addTiledImage({
-            tileSource: '/hotspicybonr.Horsehead.xml',
-            x: 0.1609,y: 0.5032,opacity:0.0,degrees:4,
-            width: 0.027,
-            index:3, replace:true       
-        });
-    };
-    function showHotSpicyBonrsHorsehead(viewer) {
-        viewer.addTiledImage({
-            tileSource: '/OkeWoke.Horsehead.xml',
-            x: 0.1615,y: 0.51,opacity:0.0,degrees:107.5,
-            width: 0.026,
-            index:2, replace:true       
-        });
-        viewer.addTiledImage({
-            tileSource: '/hotspicybonr.Horsehead.xml',
-            x: 0.1609,y: 0.5032,opacity:1,degrees:4,
-            width: 0.027,
-            index:3, replace:true       
-        });
-    };
-    */
     function source(author, name, x=0, y=0, width=1,rotation=0,opacity=1 ){
         return { author, name, x, y, width, rotation, opacity }
     }
@@ -81,25 +55,32 @@
         source('Lefty','MergeMosaic'),
         source('eigenVector','P012349', 0.4732, 0.0010, 0.5),
 
-        source('Lefty','Spaghetti', 0.156, 0.122, 0.225, 0),
-
-        source('OrangeLantern','California', 0.441, 0.187, 0.0834,2.5),
+        source('Lefty','Spaghetti2', 0.156, 0.122, 0.225, 0),
+        source('OrangeLantern','FlamingStar', 0.2841, 0.1655, 0.0834, 20.5, 1),
+        source('OrangeLantern','California', 0.441, 0.187, 0.0834, 2.5),
         source('eigenVector','Taurus.135mm.Panel5', 0.375, 0.1737, 0.1005, 12),
         source('eigenVector','LDN1472LDN1448', 0.476, 0.2365, 0.1003, 5.3),
+        source('eigenVector','DarkNebulaInCamelopardialis', 0.4076, 0.0040, 0.1134, 0, 0.55),
+        source('eigenVector','Mel20', 0.5187, 0.0517, 0.1312, 0 , 0),
 
         source('OkeWoke','Horsehead', 0.1742, 0.5272, 0.0255, 100),
         source('hotspicybonr','Horsehead',0.17315,0.5205,0.02682,-4),
         source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
-
-        source('lefty','M1', 0.25625, 0.30392, 0.008, 11),
-        source('lefty','M34', 0.6, 0.3, 0.3),
-        source('lefty','M35', 0.6, 0.3, 0.3),
-        source('lefty','M36', 0.6, 0.3, 0.3),
-        source('lefty','M37', 0.6, 0.3, 0.3),
-        source('lefty','M38', 0.6, 0.3, 0.3),
+        source('The_8_Bit_Zombie','M45', 0.49225, 0.334, 0.0169, 2.5),
         
+        source('Lefty','M1', 0.25625, 0.30392, 0.008, 11),
+       
         source('usernaneisalreadytak','M31',0.821,0.133,0.069,195),
         source('hotspicybonr','M31', 0.8437,0.150,0.024,-38),
+
+        source('The_8_Bit_Zombie','LDN1622', 0, 0, 0.0125, 2.5, 0.75),
+        source('OkeWoke','Rosette', 0.025, 0.0, 0.0125, 290, 0.75),
+        source('Lefty','M34', 0, 0, 0.0125, 0, 0.75),
+        source('Lefty','M35', .0125, 0, 0.0125, 0, 0.75),
+        source('Lefty','M36', 0, .0125, 0.0125, 0, 0.75),
+        source('Lefty','M37', .0125, .0125, 0.0125, 0, 0.75),
+        source('Lefty','M38', 0, 0, 0.0125, 0, 0.75),
+        source('Machinza','Jellyfish', 0.1613, 0.2602, 0.02, -69),
 
         source('eigenVector','ARP273', 0.677, 0.1963, 0.008,135),
         source('PixInsight','Annotated'),
@@ -107,7 +88,8 @@
     
     var viewer = OpenSeadragon({
         id: "openseadragon1",
-        prefixUrl: "/openseadragon/images/"
+        prefixUrl: "/openseadragon/images/",
+        showNavigator:  true
     });
     function refreshAt(index,replace=false){
         var src=sources[index];
@@ -146,6 +128,10 @@
         rotation:document.getElementById('rotation'),
         opacity:document.getElementById('opacity'),
         update:document.getElementById('update'),
+        hide:document.getElementById('hide'),
+        dim:document.getElementById('dim'),
+        show:document.getElementById('show'),
+        capturedValues:document.getElementById('capturedValues'),
     }
     sources.forEach(function(src,i){
         var option = document.createElement("option");
@@ -153,17 +139,18 @@
         option.value=i;
         uiElements.tileSelector.add(option,i);
     });
-    uiElements.tileSelector.onchange = function(){
-        var index=this.value;
+    var onTileChanged=function(index){
         var selectedItem=sources[index];
         uiElements.x.value=selectedItem.x;
         uiElements.y.value=selectedItem.y;
         uiElements.scale.value=selectedItem.width;
         uiElements.rotation.value=selectedItem.rotation;
         uiElements.opacity.value=selectedItem.opacity;
+    }
+    uiElements.tileSelector.onchange = function(){
+        onTileChanged(this.value);
     };
-
-    uiElements.update.onclick=function(){
+    var applyUpdateFromUser=function(){
         update(
             uiElements.tileSelector.value,
             Number(uiElements.x.value),
@@ -172,8 +159,27 @@
             Number(uiElements.rotation.value),
             Number(uiElements.opacity.value)
             );
+        uiElements.capturedValues.value=
+            uiElements.x.value+', '+
+            uiElements.y.value+', '+
+            uiElements.scale.value+', '+
+            uiElements.rotation.value+', '+
+            uiElements.opacity.value
     }
-
+    uiElements.update.onclick=applyUpdateFromUser;
+    uiElements.dim.onclick=function(){
+        uiElements.opacity.value=0.5;
+        applyUpdateFromUser();
+    }
+    uiElements.show.onclick=function(){
+        uiElements.opacity.value=1;
+        applyUpdateFromUser();
+    }
+    uiElements.hide.onclick=function(){
+        uiElements.opacity.value=0;
+        applyUpdateFromUser();
+    }
+    onTileChanged(0);
 
 </script>
 </body>

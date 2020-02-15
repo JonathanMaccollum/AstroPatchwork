@@ -19,18 +19,20 @@ $sources = @(
     #New-PatchworkSource -Target "P012349" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\MergeMosaic.P01239.png"
     #New-PatchworkSource -Target "LDN1472LDN1448" -Author eigenVector -Source "https://i.redd.it/vipgw5dfj3g41.jpg"
 
-
+    #New-PatchworkSource -Target "DarkNebulaInCamelopardialis" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\DarkNebulaInCamelopardialis.135mm.L3.D1.211xs120s.Crop.DBE.BN.PCC.NR.Draft4.png"
+    New-PatchworkSource -Target "Mel20" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\Mel20.OpenCluster.14x120s.quickintegration.quickprocess2.png"
     #New-PatchworkSource -Target "P0" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\P0.png"
-    New-PatchworkSource -Target "Spaghetti" -Author Lefty -Source "s:\dzi\Spaghetti_Patchwork.png"
-
+    #New-PatchworkSource -Target "Spaghetti" -Author Lefty -Source "s:\dzi\Spaghetti_Patchwork.png"
     #New-PatchworkSource -Target "Patchwork.17mm.Mosaic" -Author Lefty -Source "https://live.staticflickr.com/65535/49474607717_3e36185a97_o.jpg"
     #New-PatchworkSource -Target "Horsehead" -Author "hotspicybonr" -Source "https://i.redd.it/yoi99i9z76341.jpg"
     #New-PatchworkSource -Target "M45" -Author "hinterlufer" -Source "https://i.redd.it/1wmj3n567n241.jpg"
     #New-PatchworkSource -Target "M45" -Author "The_8_Bit_Zombie" -Source "https://i.imgur.com/ZDwkBKy.jpg"
+    #New-PatchworkSource -Target "LDN1622" -Author "The_8_Bit_Zombie" -Source "https://i.imgur.com/ba6wNp1.jpg"
+    #New-PatchworkSource -Target "Jellyfish" -Author "" https://imgur.com/gallery/BXuRj3W
     #New-PatchworkSource -Target "California" -Author "OrangeLantern" -Source "https://i.imgur.com/wyvrrlO.jpg"
     #New-PatchworkSource -Target "Rosette" -Author "OkeWoke" -Source "https://i.redd.it/sa5wby5y6s741.jpg"
     #New-PatchworkSource -Target "FlamingStar" -Author "OrangeLantern" -Source "https://i.redd.it/rlzp1uyolkc41.jpg"
-    #New-PatchworkSource -Target "Jellyfish" -Author "Machinza" -Source "https://imgur.com/gallery/BXuRj3W" -- Error
+    #New-PatchworkSource -Target "Jellyfish" -Author "Machinza" -Source "https://i.imgur.com/FqzwIYw.jpg" -- Error
     #New-PatchworkSource -Target "M1" -Author "Lefty" -Source "https://c1.staticflickr.com/5/4828/30952706717_20b763b7f9_o.png"
     #New-PatchworkSource -Target "M31" -Author "usernaneisalreadytak" -Source "https://i.redd.it/p68p3ou3gwx31.jpg"
     #New-PatchworkSource -Target "M31" -Author "hotspicybonr" -Source "https://i.redd.it/9y4m55s7df241.png"
@@ -60,7 +62,7 @@ foreach($i in $sources)
     try
     {
         $sparse = [Microsoft.DeepZoomTools.SparseImageCreator]::new()
-        $sparse.MaxLevel=14
+        $sparse.MaxLevel=15
         $sparse.ConversionTileFormat = [Microsoft.DeepZoomTools.ImageFormat]::Png
         $sparse.TileFormat = [Microsoft.DeepZoomTools.ImageFormat]::Png
         $sparse.Create($imageList,"$PSScriptRoot\$($i.Author).$($i.Target).xml")
