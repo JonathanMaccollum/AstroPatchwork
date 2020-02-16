@@ -50,6 +50,7 @@
     function source(author, name, x=0, y=0, width=1,rotation=0,opacity=1 ){
         return { author, name, x, y, width, rotation, opacity }
     }
+    var rotateIntervalMs=10000;
     var sources = [
         source('PixInsight','BGStars'),
         source('Lefty','MergeMosaic'),
@@ -63,12 +64,20 @@
         source('eigenVector','DarkNebulaInCamelopardialis', 0.4076, 0.0040, 0.1134, 0, 0.55),
         source('eigenVector','Mel20', 0.5187, 0.0517, 0.1312, 0 , 0),
 
+        //10
         source('hotspicybonr','Horsehead',0.17315,0.5205,0.02682,-4),
         source('OkeWoke','Horsehead', 0.1742, 0.5272, 0.0255, 100),
-        source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
-        source('The_8_Bit_Zombie','M45', 0.49225, 0.334, 0.0169, 2.5),
+        
+        //12
         source('usernaneisalreadytak','M31',0.821,0.133,0.069,195),
         source('hotspicybonr','M31', 0.8437,0.150,0.024,-38),
+
+        //14
+        source('zirput','M45', 0.4917, 0.3258, 0.01882, 5),
+        source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
+        source('The_8_Bit_Zombie','M45', 0.49225, 0.334, 0.0169, 2.5),
+
+        source('zirput','DoubleCluster', 0.6491, 0.02075, 0.0199, 75),
 
         source('The_8_Bit_Zombie','LDN1622', 0, 0, 0.0125, 2.5, 0.75),
         source('OkeWoke','Rosette', 0.025, 0.0, 0.0125, 290, 0.75),
@@ -178,7 +187,15 @@
         applyUpdateFromUser();
     }
     onTileChanged(0);
-
+    function swap3(i1, i2, i3){
+        var val=sources[i1];
+        sources[i1]=sources[i2];
+        sources[i2]=sources[i3];
+        sources[i3]=val;
+        refreshAt(i1, true);
+        refreshAt(i2, true);
+        refreshAt(i3, true);
+    }
     function swap(i1, i2){
         var val=sources[i1];
         sources[i1]=sources[i2];
@@ -189,14 +206,14 @@
     function swapTargets(){
         swap(10,11);
         swap(12,13);
-        swap(14,15);
+        swap3(14,15,16);
         window.setTimeout(
             swapTargets,
-            10000);
+            rotateIntervalMs);
     }
     window.setTimeout(
         swapTargets,
-        10000);
+        rotateIntervalMs);
 </script>
 </body>
 </html>

@@ -18,9 +18,10 @@ $sources = @(
     #New-PatchworkSource -Target "Annotated" -Author PixInsight -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\17mm\CatalogStars_Annotated.png"
     #New-PatchworkSource -Target "P012349" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\MergeMosaic.P01239.png"
     #New-PatchworkSource -Target "LDN1472LDN1448" -Author eigenVector -Source "https://i.redd.it/vipgw5dfj3g41.jpg"
-
+    New-PatchworkSource -Target "DoubleCluster" -Author zirput -Source "https://cdn.discordapp.com/attachments/678379990018162689/678380122042007582/Comet-_large.jpg"
+    New-PatchworkSource -Target "M45" -Author zirput -Source "https://i.redd.it/v0n7hyf17h841.jpg"
     #New-PatchworkSource -Target "DarkNebulaInCamelopardialis" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\DarkNebulaInCamelopardialis.135mm.L3.D1.211xs120s.Crop.DBE.BN.PCC.NR.Draft4.png"
-    New-PatchworkSource -Target "Mel20" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\Mel20.OpenCluster.14x120s.quickintegration.quickprocess2.png"
+    #New-PatchworkSource -Target "Mel20" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\Mel20.OpenCluster.14x120s.quickintegration.quickprocess2.png"
     #New-PatchworkSource -Target "P0" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\Finished\P0.png"
     #New-PatchworkSource -Target "Spaghetti" -Author Lefty -Source "s:\dzi\Spaghetti_Patchwork.png"
     #New-PatchworkSource -Target "Patchwork.17mm.Mosaic" -Author Lefty -Source "https://live.staticflickr.com/65535/49474607717_3e36185a97_o.jpg"
