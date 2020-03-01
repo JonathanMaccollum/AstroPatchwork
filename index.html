@@ -7,7 +7,7 @@
     <meta name="twitter:description" content="A Deep Zoom proof of concept of the /r/astrophotography patchwork project" />
     <meta property="og:title" content="Project Patchwork - Proof of Concept" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/index.Screenshot.20200213.PNG" />
+    <meta property="og:image" content="/index.Screenshot.20200218.PNG" />
     <style>
         body {background:black; min-height:100%;}
         #openseadragon1{position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;}
@@ -61,7 +61,7 @@
         source('OrangeLantern','California', 0.441, 0.187, 0.0834, 2.5),
         source('eigenVector','Taurus.135mm.Panel5', 0.375, 0.1737, 0.1005, 12),
         source('eigenVector','LDN1472LDN1448', 0.476, 0.2365, 0.1003, 5.3),
-        source('eigenVector','DarkNebulaInCamelopardialis', 0.4076, 0.0040, 0.1134, 0, 0.55),
+        source('eigenVector','DarkNebulaInCamelopardialis_v2', 0.4071, 0.0035, 0.1134),
         source('eigenVector','Mel20', 0.5187, 0.0517, 0.1312, 0 , 0),
 
         //10
@@ -77,26 +77,38 @@
         source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
         source('The_8_Bit_Zombie','M45', 0.49225, 0.334, 0.0169, 2.5),
 
-        source('zirput','DoubleCluster', 0.6491, 0.02075, 0.0199, 75),
+        //17
+        source('zirput','FlamingStar', 0.3261, 0.19585, 0.0178, 16.25),
+        source('zirput','M33', 0.7751, 0.2708, 0.0229, 78.25),
+        source('zirput','Cone', 0, 0.0225, 0.0129, 0),
+
+        //20
+        source('zirput','Rosette', 0.066325, 0.40745, 0.0295, 20),
+        source('OkeWoke','Rosette', 0.07545, 0.4132, 0.0122, 22.1),
+
+        source('eigenVector','M34.NGC891.ARP273', 0.61855, 0.15445, 0.10905),
 
         source('The_8_Bit_Zombie','LDN1622', 0, 0, 0.0125, 2.5, 0.75),
-        source('OkeWoke','Rosette', 0.076, 0.413, 0.0125, 50, 1),
-        source('Lefty','M34', 0, 0, 0.0125, 0, 0.75),
-        source('Lefty','M35', .0125, 0, 0.0125, 0, 0.75),
-        source('Lefty','M36', 0, .0125, 0.0125, 0, 0.75),
+        source('Lefty','M34', 0.6328, 0.1617, 0.0154, 167),
+        source('Lefty','M35', 0.1885, 0.2544, 0.0153, 49),
+        source('Lefty','M36', 0.2910, 0.18590, 0.0137, 48.3),
         source('Lefty','M37', .0125, .0125, 0.0125, 0, 0.75),
         source('Lefty','M38', 0, 0, 0.0125, 0, 0.75),
         source('Machinza','Jellyfish', 0.1613, 0.2602, 0.02, -69),
-
-        source('Lefty','M1', 0.25625, 0.30392, 0.008, 11),
-        source('eigenVector','ARP273', 0.677, 0.1963, 0.008,135),
-        source('PixInsight','Annotated', 0, 0, 0, 0, 0.50),
+        source('zirput','DoubleCluster', 0.6491, 0.02075, 0.0199, 75),
+        source('Lefty','M1', 0.25625, 0.30392, 0.008, 11),        
+        source('eigenVector','C2017T2PANSTARRS', 0.44, 0.092, 0.008, 135, 1),
+        source('eigenVector','ARP273', 0.67716, 0.19615, 0.00855, 128.5),
+        source('eigenVector','MirachsGhost', 0.8213, 0.2197, 0.00700, 82),
+        source('eigenVector','NGC206', 0.8561, 0.1602, 0.0075, 165, 0),
+        //source('PixInsight','Annotated', 0, 0, 0, 0, 0.50),
+        //source('PixInsight','Annotated2x', 0, 0, 0, 0, 0.50),
     ];
     
     var viewer = OpenSeadragon({
         id: "openseadragon1",
         prefixUrl: "/openseadragon/images/",
-        showNavigator:  true
+        showNavigator:  false
     });
     function refreshAt(index,replace=false){
         var src=sources[index];
@@ -112,8 +124,11 @@
             })
     }
     function refresh(replace=false){
-        sources.forEach(function(src,i){
-            refreshAt(i, replace)
+        sources.forEach(
+            (src,i)=>{
+                setTimeout(()=>{
+                    refreshAt(i, replace);
+                },i*250);            
         });
     }
     function update(i, x, y, w, r, o) {
@@ -204,8 +219,11 @@
         refreshAt(i2, true);
     }
     function swapTargets(){
+        swap3(5,6,7);
         swap(10,11);
         swap(12,13);
+        swap(20,21); // rosette
+        swap(4,17); // flaming star
         swap3(14,15,16);
         window.setTimeout(
             swapTargets,
@@ -213,7 +231,7 @@
     }
     window.setTimeout(
         swapTargets,
-        rotateIntervalMs);
+        15000);
 </script>
 </body>
 </html>
