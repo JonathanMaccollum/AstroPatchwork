@@ -55,7 +55,7 @@
         source('PixInsight','BGStars'),
         source('Lefty','MergeMosaic'),
         source('eigenVector','P012349', 0.4732, 0.0010, 0.5),
-
+        source('OrangeLantern','Orion', 0.106, 0.378, 0.175, -35),
         source('Lefty','Spaghetti2', 0.156, 0.122, 0.225, 0),
         source('OrangeLantern','FlamingStar', 0.2841, 0.1655, 0.0834, 20.5, 1),
         source('OrangeLantern','California', 0.441, 0.187, 0.0834, 2.5),
@@ -64,11 +64,11 @@
         source('eigenVector','DarkNebulaInCamelopardialis_v2', 0.4071, 0.0035, 0.1134),
         source('eigenVector','Mel20', 0.5187, 0.0517, 0.1312, 0 , 0),
 
-        //10
+        //11
         source('hotspicybonr','Horsehead',0.17315,0.5205,0.02682,-4),
         source('OkeWoke','Horsehead', 0.1742, 0.5272, 0.0255, 100),
         
-        //12
+        //13
         source('usernaneisalreadytak','M31',0.821,0.133,0.069,195),
         source('hotspicybonr','M31', 0.8437,0.150,0.024,-38),
 
@@ -77,31 +77,36 @@
         source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
         source('The_8_Bit_Zombie','M45', 0.49225, 0.334, 0.0169, 2.5),
 
-        //17
+        //18
         source('zirput','FlamingStar', 0.3261, 0.19585, 0.0178, 16.25),
         source('zirput','M33', 0.7751, 0.2708, 0.0229, 78.25),
-        source('zirput','Cone', 0, 0.0225, 0.0129, 0),
+        
 
         //20
-        source('zirput','Rosette', 0.066325, 0.40745, 0.0295, 20),
+        source('ForaxX','RosetteAndCone', 0.023, 0.369, 0.117, 101.5),
         source('OkeWoke','Rosette', 0.07545, 0.4132, 0.0122, 22.1),
+        source('zirput','Rosette', 0.066325, 0.40745, 0.0295, 20),
+        source('zirput','Cone', 0.0611, 0.3554, 0.028, 104),
+        source('zirput','M78', 0.1644, 0.4923, 0.0255, 99.5),
 
         source('eigenVector','M34.NGC891.ARP273', 0.61855, 0.15445, 0.10905),
 
-        source('The_8_Bit_Zombie','LDN1622', 0, 0, 0.0125, 2.5, 0.75),
+        source('The_8_Bit_Zombie','LDN1622',0.1549, 0.4771, 0.0193, 76),
+        source('The_8_Bit_Zombie','M42', 0.1853, 0.5564, 0.02, 71),
         source('Lefty','M34', 0.6328, 0.1617, 0.0154, 167),
         source('Lefty','M35', 0.1885, 0.2544, 0.0153, 49),
         source('Lefty','M36', 0.2910, 0.18590, 0.0137, 48.3),
-        source('Lefty','M37', .0125, .0125, 0.0125, 0, 0.75),
-        source('Lefty','M38', 0, 0, 0.0125, 0, 0.75),
+        source('Lefty','M37', 0.253, 0.1920, 0.0155, 49.5),
+        source('Lefty','M38', 0.3103, 0.1755, 0.0155, 184),
         source('Machinza','Jellyfish', 0.1613, 0.2602, 0.02, -69),
         source('zirput','DoubleCluster', 0.6491, 0.02075, 0.0199, 75),
         source('Lefty','M1', 0.25625, 0.30392, 0.008, 11),        
         source('eigenVector','C2017T2PANSTARRS', 0.44, 0.092, 0.008, 135, 1),
         source('eigenVector','ARP273', 0.67716, 0.19615, 0.00855, 128.5),
         source('eigenVector','MirachsGhost', 0.8213, 0.2197, 0.00700, 82),
+        source('eigenVector','Pacman', 0.7733, 0.0139, 0.0075, -112, 1),
         source('eigenVector','NGC206', 0.8561, 0.1602, 0.0075, 165, 0),
-        //source('PixInsight','Annotated', 0, 0, 0, 0, 0.50),
+        source('PixInsight','Annotated', 0, 0, 0, 0, 0.0),
         //source('PixInsight','Annotated2x', 0, 0, 0, 0, 0.50),
     ];
     
@@ -219,12 +224,12 @@
         refreshAt(i2, true);
     }
     function swapTargets(){
-        swap3(5,6,7);
-        swap(10,11);
-        swap(12,13);
-        swap(20,21); // rosette
-        swap(4,17); // flaming star
-        swap3(14,15,16);
+        swap3(6,7,8);
+        swap(11,12);
+        swap(13,14);
+        swap(21,22); // rosette
+        swap(5,18); // flaming star
+        swap3(15,16,17);
         window.setTimeout(
             swapTargets,
             rotateIntervalMs);
