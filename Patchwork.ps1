@@ -63,9 +63,11 @@ $sources = @(
     #New-PatchworkSource -Target "M34.NGC891.ARP273b" -Author eigenVector -Source "D:\Backups\Camera\Astrophotography\135mm\M34 NGC891 ARP273\M34 NGC891 ARP273.58x120s.integration.DBE.BN.CC.PCC.Processed.Aligned2.png"
     #New-PatchworkSource -Target "MirachsGhost" -Author eigenVector -Source "D:\Backups\Camera\OneDrive\Pictures\Astrophotography\Mirach's Ghost\MirachsGhost.RGB72x60s.Crop.DBE.BN.PCC.NR.Draft1.Full.jpg"
     #New-PatchworkSource -Target "LBN777.HappyLilGhost" -Author eigenVector -Source "S:\DZI\eigenVector.LBN777.HappyLilGhost.png"
-    New-PatchworkSource -Target "LBN777.HappyLilGhost.135mm" -Author eigenVector -Source "S:\DZI\eigenVector.LBN777.HappyLilGhost.135mm.png"
+    #New-PatchworkSource -Target "LBN777.HappyLilGhost.135mm" -Author eigenVector -Source "S:\DZI\eigenVector.LBN777.HappyLilGhost.135mm.png"
+    #New-PatchworkSource -Target "Cone" -Author "Shastarocks" -Source "https://i.redd.it/xqaiqc9rqno41.jpg"
+    #New-PatchworkSource -Target "M78" -Author "Shastarocks" -Source "https://docs.google.com/uc?export=download&id=1yNEazj-1CwTOh-g-gn77ZGW0gCa0C808"
     #New-PatchworkSource -Target "RosetteAndCone" -Author ForaxX -Source "https://i.redd.it/2kiiismfkvk41.jpg"
-    
+    New-PatchworkSource -Target "RosetteAndCone" -Author SirSocket -Source "https://i.redd.it/oer80jl9mvk41.jpg"
     #New-PatchworkSource -Target "Patchwork.50mm.P0" -Author "eigenVector" -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\P0.Mirach.21x240s.DBE.BN.CC.PCC.NR.Processed.jpg"
     #New-PatchworkSource -Target "Patchwork.50mm.P1" -Author "eigenVector" -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\P1.Crop.DBE.BN.CC.PCC.NR.Processed.jpg"
     #New-PatchworkSource -Target "Patchwork.50mm.P2" -Author "eigenVector" -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\P2.Crop.DBE.BN.CC.PCC.NR.Processed.jpg"
