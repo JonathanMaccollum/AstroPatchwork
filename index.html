@@ -84,9 +84,9 @@
         
         //13
         source('usernaneisalreadytak','M31',0.821,0.133,0.069,195),
-        source('hotspicybonr','M31', 0.8437,0.150,0.024,-38),
+        source('hotspicybonr','M31', 0.84285, 0.14885, 0.02585, -36.2),
 
-        //14
+        //15
         source('zirput','M45', 0.4917, 0.3258, 0.01882, 5),
         source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
         source('The_8_Bit_Zombie','M45', 0.49225, 0.334, 0.0169, 2.5),
@@ -105,10 +105,10 @@
         source('Shastarocks','Cone', 0.06761, 0.35982, 0.01588, 207.7),
         source('zirput','M78', 0.16515, 0.4923, 0.0237, 102),
         source('Shastarocks','M78', 0.17355, 0.4984, 0.0057, -1.2),
-        
+        source('eigenVector','NGC206', 0.8562, 0.15997, 0.00725, 158),
         source('eigenVector','M34.NGC891.ARP273', 0.61855, 0.15445, 0.10905),
         //source('eigenVector','LBN777.HappyLilGhost.135mm', 0.40908, 0.28516, 0.1097),
-
+        
         source('The_8_Bit_Zombie','LDN1622',0.1549, 0.4771, 0.0193, 76),
         source('The_8_Bit_Zombie','M42', 0.1853, 0.5564, 0.02, 71),
         source('aatdalt','IC 410 Tadpoles', 0.31315, 0.2021, 0.01430, 109),
@@ -126,12 +126,12 @@
         source('eigenVector','MirachsGhost', 0.8213, 0.2197, 0.00700, 82),
         source('eigenVector','M76', 0.7231, 0.07425, 0.0066, 90),
         source('eigenVector','Pacman', 0.7733, 0.0139, 0.0075, -112, 1),
-        source('eigenVector','NGC206', 0.8561, 0.1602, 0.0075, 165, 0),
         source('eigenVector','LBN777.HappyLilGhost', 0.46208, 0.30907, 0.00585),
         source('PixInsight','Annotated', 0, 0, 0, 0, 0.0),
         //source('PixInsight','Annotated2x', 0, 0, 0, 0, 0.50),
     ];
-    
+    var url = new URL(location.href);
+    var isDebug = (url.searchParams.get("debug")==='true');    
     var viewer = OpenSeadragon({
         id: "openseadragon1",
         prefixUrl: "/openseadragon/images/",
@@ -150,12 +150,16 @@
                 opacity: src.opacity
             })
     }
-    function refresh(replace=false){
+    function startImageLoad(){
+        var delay = 250;
+        if(isDebug){
+            delay=0;
+        }
         sources.forEach(
             (src,i)=>{
                 setTimeout(()=>{
-                    refreshAt(i, replace);
-                },i*250);            
+                    refreshAt(i, false);
+                },i*delay);            
         });
     }
     function update(i, x, y, w, r, o) {
@@ -166,7 +170,7 @@
         sources[i].opacity=o;
         refreshAt(i, true)
     }
-    refresh(false);
+    startImageLoad();
 
     var uiElements = {
         form:document.getElementById('form'),
@@ -246,6 +250,17 @@
         refreshAt(i2, true);
         refreshAt(i3, true);
     }
+    function swap4(i1, i2, i3,i4){
+        var val=sources[i1];
+        sources[i1]=sources[i2];
+        sources[i2]=sources[i3];
+        sources[i3]=sources[i4];
+        sources[i4]=val;
+        refreshAt(i1, true);
+        refreshAt(i2, true);
+        refreshAt(i3, true);
+        refreshAt(i4, true);
+    }
     function swap(i1, i2){
         var val=sources[i1];
         sources[i1]=sources[i2];
@@ -254,22 +269,104 @@
         refreshAt(i2, true);
     }
     function swapTargets(){
+        if(isDebug){
+            return;
+        }
         swap3(6,7,8);
         swap(11,12);
-        swap(13,14);
+        swap3(13,14,28); // andromeda
         swap(5,18); // flaming star
         swap3(15,16,17);
         swap(20,21); // cone/rosette 135mm
         swap(22,23); // rosette
         swap(24,25); // cone
         swap(26,27); // m78
-        window.setTimeout(
-            swapTargets,
-            rotateIntervalMs);
     }
-    window.setTimeout(
-        swapTargets,
-        15000);
+    function onKeyUp(key,x){
+        document.addEventListener('keyup',(event)=>{
+            const keyName = event.key;
+            if(keyName===key){
+                x();
+            }
+        });
+    }
+    if(!isDebug){
+        var swapInterval = window.setInterval(swapTargets,rotateIntervalMs);
+        onKeyUp("n",()=>{
+            swapTargets();
+                window.clearInterval(swapInterval);
+                swapInterval = window.setInterval(swapTargets,rotateIntervalMs);
+        });
+    }
+
+    if(isDebug){
+        onKeyUp("h",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.x=selectedItem.x-0.00005;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("k",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.x=selectedItem.x+0.00005;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("u",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.y=selectedItem.y-0.00005;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("j",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.y=selectedItem.y+0.00005;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("y",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.rotation=selectedItem.rotation-0.1;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("i",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.rotation=selectedItem.rotation+0.1;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("o",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.width=selectedItem.width+0.00005;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("l",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.width=selectedItem.width-0.00005;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("1",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.opacity=0;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("2",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.opacity=0.5;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+        onKeyUp("3",()=>{
+            var selectedItem=sources[uiElements.tileSelector.value];
+            selectedItem.opacity=1;
+            refreshAt(uiElements.tileSelector.value,true);
+            onTileChanged(uiElements.tileSelector.value);
+        })
+    }
 </script>
 </body>
 </html>
