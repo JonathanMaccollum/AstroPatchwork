@@ -76,6 +76,7 @@ $sources = @(
     #New-PatchworkSource -Target "Patchwork.50mm.P3" -Author "eigenVector" -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\P3.Crop.DBE.BN.CC.PCC.NR.Processed.jpg"
     #New-PatchworkSource -Target "Patchwork.50mm.P9" -Author "eigenVector" -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\P9.M34.16x240s.Crop.DBE.BN.CC.NR.Processed.jpg"
     #New-PatchworkSource -Target "Pacman" -Author "eigenVector" -Source "D:\Backups\Camera\OneDrive\Pictures\Astrophotography\Pacman\SHO.Ha.36x600.Oiii.27x600s.Sii.34x600s.Draft7.jpg"
+    New-PatchworkSource -Target "TaurusRegion" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=1MatikiOrl4lfBNA149peMSMRickE37Lr"
     #New-PatchworkSource -Target "" -Author "" -Source ""
 )
 foreach($i in $sources)
@@ -88,7 +89,7 @@ foreach($i in $sources)
     try
     {
         $sparse = [Microsoft.DeepZoomTools.SparseImageCreator]::new()
-        $sparse.MaxLevel=15
+        $sparse.MaxLevel=16
         $sparse.ConversionTileFormat = [Microsoft.DeepZoomTools.ImageFormat]::Png
         $sparse.TileFormat = [Microsoft.DeepZoomTools.ImageFormat]::Png
         $sparse.Create($imageList,"$PSScriptRoot\$($i.Author).$($i.Target).xml")

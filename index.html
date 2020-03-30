@@ -12,22 +12,11 @@
         body {background:black; min-height:100%;}
         #openseadragon1{position:absolute; top:10;bottom:10;left:10;right:10;overflow:hidden;}
         #editor{position:absolute; bottom:10;right:10;overflow:hidden; background-color:#333333DD; padding:4px; display:none;}
-        #showEditor{
-            position:absolute; bottom:10;right:10;overflow:hidden; padding:4px; height:18; width:18; 
-            background-color:#111111; color:#444444; border-width: 1px; border-color: #666666;
-            font-size: xx-small;
-        }
-        #hideEditor{
-            position:absolute; bottom:0;right:0;overflow:hidden; height:18; width:18;
-            background-color:#111111; color:#444444; border-width: 1px; border-color: #666666;
-            font-size: xx-small;
-        }
         label{width:100px; display:inline-block; text-align: right;}
     </style>
 </head>
 <body >
 <div id="openseadragon1" ></div>
-<input id="showEditor" type="button" value="__|" />
 <div id="editor">
     <label for="tiles">Target: </label>
     <select id="tiles"></select>
@@ -55,8 +44,6 @@
     <br />
     <label for="capturedValues" >Values: </label>
     <input id="capturedValues" type="text" disabled />
-    <br />
-    <input id="hideEditor" type="button" value="X"  />
 </div>
 <script src="openseadragon/openseadragon.min.js"></script>
 <script type="text/javascript">
@@ -73,30 +60,31 @@
         source('Lefty','Spaghetti2', 0.156, 0.122, 0.225, 0),
         source('OrangeLantern','FlamingStar', 0.2841, 0.1655, 0.0834, 20.5, 1),
         source('OrangeLantern','California', 0.441, 0.187, 0.0834, 2.5),
+        source('OrangeLantern','TaurusRegion', 0.441, 0.187, 0.0834, 2.5),
         source('eigenVector','Taurus.135mm.Panel5', 0.375, 0.1737, 0.1005, 12),
         source('eigenVector','LDN1472LDN1448', 0.476, 0.2365, 0.1003, 5.3),
         source('eigenVector','DarkNebulaInCamelopardialis_v2', 0.4071, 0.0035, 0.1134),
         source('eigenVector','Mel20', 0.5187, 0.0517, 0.1312, 0 , 0),
 
-        //11
+        //12
         source('hotspicybonr','Horsehead',0.17315,0.5205,0.02682,-4),
         source('OkeWoke','Horsehead', 0.1742, 0.5272, 0.0255, 100),
         
-        //13
+        //14
         source('usernaneisalreadytak','M31',0.821,0.133,0.069,195),
         source('hotspicybonr','M31', 0.84285, 0.14885, 0.02585, -36.2),
 
-        //15
-        source('zirput','M45', 0.4917, 0.3258, 0.01882, 5),
-        source('hinterlufer','M45', 0.48705, 0.3309, 0.0265, 181.5),
-        source('The_8_Bit_Zombie','M45', 0.49225, 0.334, 0.0169, 2.5),
+        //16
+        source('zirput','M45', 0.4917, 0.3258, 0.01882, 4.7000),
+        source('hinterlufer','M45', 0.48695, 0.33085, 0.02665, 181.7),
+        source('The_8_Bit_Zombie','M45', 0.4922, 0.33405, 0.0169, 2.6),
 
-        //18
-        source('zirput','FlamingStar', 0.3261, 0.19585, 0.0178, 16.25),
+        //19
+        source('zirput','FlamingStar', 0.326, 0.19575, 0.018, 17.65),
         source('zirput','M33', 0.7751, 0.2708, 0.0229, 78.25),
         
 
-        //20
+        //21
         source('ForaxX','RosetteAndCone', 0.023, 0.369, 0.117, 101.5),
         source('SirSocket','RosetteAndCone', 0.044, 0.368, 0.078, 109.5),
         source('zirput','Rosette', 0.066325, 0.40745, 0.0295, 20),
@@ -186,14 +174,12 @@
         show:document.getElementById('show'),
         capturedValues:document.getElementById('capturedValues'),
         editor:document.getElementById('editor'),
-        hideEditor:document.getElementById('hideEditor'),
-        showEditor:document.getElementById('showEditor'),
     }
-    uiElements.showEditor.onclick=function(){
-        uiElements.editor.style.display = "block"; };
-    uiElements.hideEditor.onclick=function(){
-        uiElements.editor.style.display = "none"; };
-        
+    if(isDebug) {
+        uiElements.editor.style.display = "block";
+    }else{
+        uiElements.editor.style.display = "none";
+    }
     sources.forEach(function(src,i){
         var option = document.createElement("option");
         option.text=src.name + ' - '+src.author;
@@ -272,15 +258,15 @@
         if(isDebug){
             return;
         }
-        swap3(6,7,8);
-        swap(11,12);
-        swap3(13,14,28); // andromeda
-        swap(5,18); // flaming star
-        swap3(15,16,17);
-        swap(20,21); // cone/rosette 135mm
-        swap(22,23); // rosette
-        swap(24,25); // cone
-        swap(26,27); // m78
+        swap3(7,8,9);
+        swap(12,13);
+        swap3(14,15,29); // andromeda
+        swap(6,19); // flaming star
+        swap3(16,17,18);
+        swap(21,22); // cone/rosette 135mm
+        swap(23,24); // rosette
+        swap(25,26); // cone
+        swap(27,28); // m78
     }
     function onKeyUp(key,x){
         document.addEventListener('keyup',(event)=>{
@@ -348,19 +334,19 @@
             refreshAt(uiElements.tileSelector.value,true);
             onTileChanged(uiElements.tileSelector.value);
         })
-        onKeyUp("1",()=>{
+        onKeyUp("z",()=>{
             var selectedItem=sources[uiElements.tileSelector.value];
             selectedItem.opacity=0;
             refreshAt(uiElements.tileSelector.value,true);
             onTileChanged(uiElements.tileSelector.value);
         })
-        onKeyUp("2",()=>{
+        onKeyUp("x",()=>{
             var selectedItem=sources[uiElements.tileSelector.value];
             selectedItem.opacity=0.5;
             refreshAt(uiElements.tileSelector.value,true);
             onTileChanged(uiElements.tileSelector.value);
         })
-        onKeyUp("3",()=>{
+        onKeyUp("c",()=>{
             var selectedItem=sources[uiElements.tileSelector.value];
             selectedItem.opacity=1;
             refreshAt(uiElements.tileSelector.value,true);
