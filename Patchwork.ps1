@@ -77,8 +77,11 @@ $sources = @(
     #New-PatchworkSource -Target "Patchwork.50mm.P9" -Author "eigenVector" -Source "D:\Backups\Camera\Astrophotography\50mm\Andromeda to Orion\P9.M34.16x240s.Crop.DBE.BN.CC.NR.Processed.jpg"
     #New-PatchworkSource -Target "Pacman" -Author "eigenVector" -Source "D:\Backups\Camera\OneDrive\Pictures\Astrophotography\Pacman\SHO.Ha.36x600.Oiii.27x600s.Sii.34x600s.Draft7.jpg"
     #New-PatchworkSource -Target "TaurusRegion" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=1MatikiOrl4lfBNA149peMSMRickE37Lr"
-    New-PatchworkSource -Target "CaliforniaToPleiades" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=1K4acq7eoLZ9TqWUKM1zwHNzQ9B1O6n58"
+    #New-PatchworkSource -Target "CaliforniaToPleiades" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=1K4acq7eoLZ9TqWUKM1zwHNzQ9B1O6n58"
     #New-PatchworkSource -Target "California" -Author "Cdtj3" -Source "https://i.imgur.com/BI5nL6S.jpg"
+    New-PatchworkSource -Target "MilkyWay" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=12T5294QF5gvynFh6ir5vxaKB4oKk6z9S"
+    New-PatchworkSource -Target "CassiopeiaToAndromeda" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=17xLIuVk1JdTxiT7e2mi_aaQhWWqF0Lyg"
+    
     #New-PatchworkSource -Target "" -Author "" -Source ""
 )
 foreach($i in $sources)
