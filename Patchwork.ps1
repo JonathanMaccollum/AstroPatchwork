@@ -79,8 +79,11 @@ $sources = @(
     #New-PatchworkSource -Target "TaurusRegion" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=1MatikiOrl4lfBNA149peMSMRickE37Lr"
     #New-PatchworkSource -Target "CaliforniaToPleiades" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=1K4acq7eoLZ9TqWUKM1zwHNzQ9B1O6n58"
     #New-PatchworkSource -Target "California" -Author "Cdtj3" -Source "https://i.imgur.com/BI5nL6S.jpg"
-    New-PatchworkSource -Target "MilkyWay" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=12T5294QF5gvynFh6ir5vxaKB4oKk6z9S"
-    New-PatchworkSource -Target "CassiopeiaToAndromeda" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=17xLIuVk1JdTxiT7e2mi_aaQhWWqF0Lyg"
+    #New-PatchworkSource -Target "MilkyWay" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=12T5294QF5gvynFh6ir5vxaKB4oKk6z9S"
+    #New-PatchworkSource -Target "CassiopeiaToAndromeda" -Author "OrangeLantern" -Source "https://drive.google.com/uc?export=download&id=17xLIuVk1JdTxiT7e2mi_aaQhWWqF0Lyg"
+    #New-PatchworkSource -Target "HeartAndSoul" -Author "aatdalt" -Source "https://i.imgur.com/cakxbwZ.jpg"
+    #New-PatchworkSource -Target "Witcheshead" -Author "LtChestnut" -Source "https://drive.google.com/uc?export=download&id=1gzVequq-NYOXLSShTklOevVH3tPllh2l"
+    #New-PatchworkSource -Target "IC405 IC410 Reprojected" -Author "ForaxX" -Source "C:\Users\jmaccollum\Downloads\ReprojectedFlamingStar.png"
     
     #New-PatchworkSource -Target "" -Author "" -Source ""
 )

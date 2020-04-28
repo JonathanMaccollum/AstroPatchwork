@@ -57,8 +57,8 @@
         source('eigenVector','P012349', 0.4732, 0.0010, 0.5),
 
         //03
-        source('OrangeLantern','MilkyWay', 0.4732, 0.0000, 0.01),
-        source('OrangeLantern','CassiopeiaToAndromeda', 0.66125, -0.07575, 0.265, 0),
+        source('OrangeLantern','MilkyWay', 0.4069, -0.3412, 0.7395),
+        source('OrangeLantern','CassiopeiaToAndromeda', 0.66125, -0.07575, 0.265),
         source('OrangeLantern','Orion', 0.106, 0.378, 0.175, -35),
         source('Lefty','Spaghetti2', 0.156, 0.122, 0.225, 0),
         
@@ -93,10 +93,11 @@
         source('The_8_Bit_Zombie','M45', 0.4922, 0.33405, 0.0169, 2.6),
 
         //24
-        source('zirput','FlamingStar', 0.326, 0.19575, 0.018, 17.65),
         source('OrangeLantern','FlamingStar', 0.2841, 0.1655, 0.0834, 20.5),
+        source('ForaxX','IC405 IC410 Reprojected', 0.2928, 0.169, 0.0705),
+        source('zirput','FlamingStar', 0.326, 0.19575, 0.018, 17.65),
 
-        //26
+        //27
         source('ForaxX','RosetteAndCone', 0.023, 0.369, 0.117, 101.5),
         source('SirSocket','RosetteAndCone', 0.044, 0.368, 0.078, 109.5),
         source('zirput','Rosette', 0.066325, 0.40745, 0.0295, 20),
@@ -107,20 +108,23 @@
         source('Shastarocks','M78', 0.17355, 0.4984, 0.0057, -1.2),
         source('eigenVector','M34.NGC891.ARP273', 0.61855, 0.15445, 0.10905),
 
-        //35
+        //36
         source('zirput','M33', 0.7751, 0.2708, 0.0229, 78.25),
         source('The_8_Bit_Zombie','LDN1622',0.1549, 0.4771, 0.0193, 76),
         source('The_8_Bit_Zombie','M42', 0.1853, 0.5564, 0.02, 71),
         source('aatdalt','IC 410 Tadpoles', 0.31315, 0.2021, 0.01430, 109),
+        source('aatdalt','HeartAndSoul', 0.596, -0.02695, 0.056, 183, 1),
         source('Lefty','M34', 0.6328, 0.1617, 0.0154, 167),
         source('Lefty','M35', 0.1885, 0.2544, 0.0153, 49),
         source('Lefty','M36', 0.2910, 0.18590, 0.0137, 48.3),
         source('Lefty','M37', 0.253, 0.1920, 0.0155, 49.5),
-        source('Lefty','M38', 0.3103, 0.1755, 0.0155, 184),
+        source('Lefty','M38', 0.3094, 0.1756, 0.01635, 183.5),
         source('Lefty','MonkeyHead', 0.1720, 0.2882, 0.016, 220),
         source('Machinza','Jellyfish', 0.1613, 0.2602, 0.02, -69),
         source('zirput','DoubleCluster', 0.6491, 0.02075, 0.0199, 75),
-        source('Lefty','M1', 0.25625, 0.30392, 0.008, 11),        
+        source('Lefty','M1', 0.25625, 0.30392, 0.008, 11),
+        source('LtChestnut','Witcheshead', 0.2172, 0.55635, 0.083, 100.6, 1),
+        
         source('eigenVector','C2017T2PANSTARRS', 0.44, 0.092, 0.008, 135, 1),
         source('eigenVector','ARP273', 0.67716, 0.19615, 0.00855, 128.5),
         source('eigenVector','MirachsGhost', 0.8213, 0.2197, 0.00700, 82),
@@ -275,11 +279,11 @@
         swap(15,16); // horsehead
         swap3(17,18,19); // andromeda
         swap3(21,22,23); // m45
-        swap(24,25); // flaming star
-        swap(26,27); // cone/rosette 135mm
-        swap(28,29); // rosette
-        swap(30,31); // cone
-        swap(32,33); // m78
+        swap3(24,25,26); // flaming star
+        swap(27,28); // cone/rosette 135mm
+        swap(29,30); // rosette
+        swap(31,32); // cone
+        swap(33,34); // m78
     }
     function onKeyUp(key,x){
         uiElements.viewer.addEventListener('keyup',(event)=>{
