@@ -130,6 +130,9 @@
         source('eigenVector','MirachsGhost', 0.8213, 0.2197, 0.00700, 82),
         source('eigenVector','M76', 0.7231, 0.07425, 0.0066, 90),
         source('eigenVector','Pacman', 0.7733, 0.0139, 0.0075, -112, 1),
+        source('Lefty','Sh2-250', 0.34372, 0.4747, 0.0139, 32),
+        source('Lefty','Sh2-188', 0.710, 0.012, 0.0125, 0, 1),
+        source('Machinza','Sh2-308', -0.03, 0.69, 0.02, 170),
         source('eigenVector','LBN777.HappyLilGhost', 0.46208, 0.30907, 0.00585),
         source('PixInsight','Annotated', 0, 0, 0, 0, 0.0),
         //source('PixInsight','Annotated2x', 0, 0, 0, 0, 0.50),
@@ -138,7 +141,7 @@
     var isDebug = (url.searchParams.get("debug")==='true');    
     var viewer = OpenSeadragon({
         id: "openseadragon1",
-        prefixUrl: "/openseadragon/images/",
+        prefixUrl: "/Patchwork/openseadragon/images/",
         showNavigator:  false
     });
     function refreshAt(index,replace=false){

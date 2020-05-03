@@ -84,7 +84,9 @@ $sources = @(
     #New-PatchworkSource -Target "HeartAndSoul" -Author "aatdalt" -Source "https://i.imgur.com/cakxbwZ.jpg"
     #New-PatchworkSource -Target "Witcheshead" -Author "LtChestnut" -Source "https://drive.google.com/uc?export=download&id=1gzVequq-NYOXLSShTklOevVH3tPllh2l"
     #New-PatchworkSource -Target "IC405 IC410 Reprojected" -Author "ForaxX" -Source "C:\Users\jmaccollum\Downloads\ReprojectedFlamingStar.png"
-    
+    #New-PatchworkSource -Target "Sh2-250" -Author "Lefty" -Source "https://i.imgur.com/B1O9nNQ.jpg"
+    #New-PatchworkSource -Target "Sh2-188" -Author "Lefty" -Source "https://live.staticflickr.com/65535/48894116051_dde39c542e_o.png"
+    New-PatchworkSource -Target "Sh2-308" -Author "Machinza" -Source "https://cdn.discordapp.com/attachments/634401658188857374/706241287312900096/Dolphin_-_Imgur.jpg"
     #New-PatchworkSource -Target "" -Author "" -Source ""
 )
 foreach($i in $sources)
