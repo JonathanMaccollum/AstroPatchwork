@@ -64,7 +64,7 @@ $sources = @(
     #New-PatchworkSource -Target "MirachsGhost" -Author eigenVector -Source "D:\Backups\Camera\OneDrive\Pictures\Astrophotography\Mirach's Ghost\MirachsGhost.RGB72x60s.Crop.DBE.BN.PCC.NR.Draft1.Full.jpg"
     #New-PatchworkSource -Target "M76" -Author eigenVector -Source "https://i.redd.it/ezu0wzqh8mp41.jpg"
     #New-PatchworkSource -Target "LBN777.HappyLilGhost" -Author eigenVector -Source "S:\DZI\eigenVector.LBN777.HappyLilGhost.png"
-    #New-PatchworkSource -Target "LBN777.HappyLilGhost.135mm" -Author eigenVector -Source "S:\DZI\eigenVector.LBN777.HappyLilGhost.135mm.png"
+    #New-PatchworkSource -Target "LBN777.HappyLilGhost.135mm.Final" -Author eigenVector -Source "E:\Astrophotography\135mm\Taurus to Pleiades\Processing2\P3.123x120s.integration.Crop.DBE.BN.CC.Solved.PCC.NR.Processed2.png"
     #New-PatchworkSource -Target "Cone" -Author "Shastarocks" -Source "https://i.redd.it/xqaiqc9rqno41.jpg"
     #New-PatchworkSource -Target "M78" -Author "Shastarocks" -Source "https://docs.google.com/uc?export=download&id=1yNEazj-1CwTOh-g-gn77ZGW0gCa0C808"
     #New-PatchworkSource -Target "RosetteAndCone" -Author ForaxX -Source "https://i.redd.it/2kiiismfkvk41.jpg"
@@ -86,7 +86,11 @@ $sources = @(
     #New-PatchworkSource -Target "IC405 IC410 Reprojected" -Author "ForaxX" -Source "C:\Users\jmaccollum\Downloads\ReprojectedFlamingStar.png"
     #New-PatchworkSource -Target "Sh2-250" -Author "Lefty" -Source "https://i.imgur.com/B1O9nNQ.jpg"
     #New-PatchworkSource -Target "Sh2-188" -Author "Lefty" -Source "https://live.staticflickr.com/65535/48894116051_dde39c542e_o.png"
-    New-PatchworkSource -Target "Sh2-308" -Author "Machinza" -Source "https://cdn.discordapp.com/attachments/634401658188857374/706241287312900096/Dolphin_-_Imgur.jpg"
+    #New-PatchworkSource -Target "Sh2-308" -Author "Machinza" -Source "https://cdn.discordapp.com/attachments/634401658188857374/706241287312900096/Dolphin_-_Imgur.jpg"
+    #New-PatchworkSource -Target "NGC7822" -Author "aatdalt" -Source "https://drive.google.com/uc?export=download&id=1IX9ay9AkyAtrRKILcH0oCE84_zPTR-Yg"
+    #New-PatchworkSource -Target "Hyades" -Author "eigenVector" -Source "E:\Astrophotography\135mm\Hyades\Hyades.136x120s.135mm.L3.integration.Draft4.png"
+    #New-PatchworkSource -Target "HyadesToTaurusToPleiades" -Author "eigenVector" -Source "E:\Astrophotography\135mm\Taurus to Pleiades\Processing2\MergeMosaic.Processing2.Hyades.P1P2P3P4.Processed.png"
+    #New-PatchworkSource -Target "M77" -Author "Lefty" -Source "https://live.staticflickr.com/65535/49189528811_e11c94c1a1_o.png"
     #New-PatchworkSource -Target "" -Author "" -Source ""
 )
 foreach($i in $sources)
